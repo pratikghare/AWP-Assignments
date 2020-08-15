@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+
+        function increaseCounter(){
+            var cnt = parseInt(document.querySelector('#mycount').innerHTML);
+            var elem = document.querySelector("#mycount");
+            console.log(cnt);
+            cnt = cnt+1;
+            elem.innerHTML = cnt;
+        }
+        function decreaseCounter(){
+            var cnt = parseInt(document.querySelector('#mycount').innerHTML);
+            var elem = document.querySelector("#mycount");
+            if(cnt > 0)
+                cnt = cnt -1;
+            else
+                alert('Value cannot be below 0');
+            elem.innerHTML = cnt;
+        }
+    </script>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            height: 60vh;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .element{
+            font-size: 64px;
+        }
+        .btns{
+            display: flex;
+        }
+        .btn{
+            background-color: teal;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            margin-right:  10px;
+            margin-left: 10px;
+            border-radius: 5px;
+            color: #fff;
+            cursor:pointer;
+            font-family: Verdana;
+        }
+        .btn:hover{
+            background-color: rgba(0, 128, 128, 0.8);
+        }
+        .btn:active{
+            transform: scale(0.9);
+            transition: all 200ms ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="element" id="mycount">
+        220
+    </div>
+    <br><br>
+    <div class="btns">
+        <div >
+            <button id="btninc" class="btn" onclick="increaseCounter()">Increase</button>
+        </div>
+        <div >
+            <button id="btndec" class="btn" onclick="decreaseCounter()">Decrease
+            </button>
+        </div>
+    </div>
+</body>
+</html>

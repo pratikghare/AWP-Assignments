@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .btns{
+            display: flex;
+
+        }
+        button{
+            padding: 8px 20px;
+            margin: 2px 10px;
+        }
+        #text-box{
+            padding: 8px 10px;
+            width: 20em;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-body">
+        <div>
+            <h1>Someone has posted something!</h1>
+        </div>
+        <div>
+            <input id="text-box" type="text" />
+        </div><br>
+        <div class="btns">
+            <div>
+                <button id="lk-btn" onclick="like()">Like <span id="lks">20</span></button>
+            </div>
+
+            <div>
+                <button id="cmnt-btn" onclick="onComment()">Comment Now</button>
+            </div>
+        </div>
+        <div id="comment-section">
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var likes = parseInt(document.getElementById('lks').innerHTML);
+    var postCom = document.getElementById('comment-section');
+    function like(){
+        likes += 1;
+        document.getElementById('lks').innerHTML = likes;
+    }
+    function onComment(){ 
+        var userComment = document.getElementById('text-box').value;
+        const newElement = document.createElement("div");
+        newElement.textContent = userComment;
+        postCom.insertBefore(newElement, postCom.firstChild);
+        postCom.style.backgroundColor = 'red';
+        postCom.style.color = '#fff'
+        document.getElementById('text-box').value = "";
+    }
+</script>
